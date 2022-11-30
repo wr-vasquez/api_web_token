@@ -1,0 +1,12 @@
+/*----INSTALCION DE PAKET JSON----------------------------*/
+npm init -y
+
+/*---INSTALACION  PARA MONGO-----*/
+
+npm i bcryptjs cors dotenv express helmet jsonwebtoken mongoose morgan
+
+/*-----INSTALACION PARA BABEL
+
+npm i @babel/core @babel/cli  @babel/node @babel/preset-env nodemon -D
+
+mongodb+srv://root:root@cluster0.hwtkhhw.mongodb.net/test
