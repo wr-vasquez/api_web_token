@@ -1,6 +1,9 @@
 import mongoose from "mongoose"
 
-mongoose.connect("mongodb+srv://root:root@cluster0.hwtkhhw.mongodb.net/test")
+mongoose.connect("mongodb://localhost/company", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 
 .then(db => console.log('Db conectada'))
