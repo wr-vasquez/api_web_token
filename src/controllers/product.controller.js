@@ -46,45 +46,12 @@ export const updateProductById = async (req, res) => {
 
   res.status(204).json(updatedProduct)
 
-}
+};
 
+// METODO PARA ELIMINAR POR ID // url http://localhost:3000/products/ -- ID que vamos eliminar
 export const deleteProduct =  async (req, res) => {
 
   const deletedProduct = await Product.findByIdAndDelete(req.params.productId)
   res.status(204).json()
 
-
 }
-
-
-//METODOS DE LEIFER
-
-// export const updateSingle =(req, res) = {
-//     const { id } = req.params
-//     const body = req.body
-//     Product.updateOne(
-//         { _id: parseId(req.params.id) },
-//     body, 
-//     (err, docs) =>{
-//     res.send({
-        
-//         items: docs
-//       })
-//     })
-    
-
-//}
-
-exports.updateTVShow = function (req, res) {
-    TVShow.findById(req.params.id, function (err, product) {
-        product.name = req.body.name;
-        product.category = req.body.category;
-        product.price = req.body.price;
-        product. imgURL = req.body.imgURL;
-     
-        product.save(function (err) {
-        if (err) return res.status(500).send(err.message);
-        res.status(200).jsonp(product);
-      });
-    });
-  };
