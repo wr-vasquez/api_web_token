@@ -2,6 +2,7 @@ import User from '../models/User';
 import jwt from 'jsonwebtoken'
 import config from '../config';
 import Roles from '../models/Roles';
+import Users from '../models/User';
 
 //METODO PARA INICIAR SESION ROLES Url http://localhost:3000/api/auth/signup
 export const signUp = async(req, res) =>{
@@ -43,7 +44,24 @@ export const signIn = async(req, res) =>{
     //Validacion de password si coincide o no 
     const matchPassword = await User.comparePassword(req.body.password, userFound.password)
     if(!matchPassword) return res.status(401).json({token: null, messaje: "Invalid Password"})
-    console.log(userFound)
-    res.json({token: ''})
+    const token = jwt.sign({id: userFound._id}, config.SECRET, {
+        expiresIn: 15000
+    })
+    res.json({token})
 }
 
+//MERODO PARA MOSTRAR USUARIOS --> Url http://localhost:3000/api/auth/verRoles/
+export const getRoles = async(req, res) => {
+    const usuarios  = await Users.find();
+    res.json(usuarios);
+
+};
+
+
+//METODO PARA ELIMINAR USUARIOS
+export const deleteUser =  async (req, res) => {
+
+    const deletedUser = await Users.findByIdAndDelete(req.params.userId)
+    res.status(204).json()
+  
+  }

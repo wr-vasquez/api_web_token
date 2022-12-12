@@ -9,4 +9,3 @@ npm i bcryptjs cors dotenv express helmet jsonwebtoken mongoose morgan
 
 npm i @babel/core @babel/cli  @babel/node @babel/preset-env nodemon -D
 
-mongodb+srv://root:root@cluster0.hwtkhhw.mongodb.net/test
